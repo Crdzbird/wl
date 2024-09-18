@@ -12,6 +12,8 @@
       "args": [
         "--flavor",
         "development",
+        "--dart-define",
+        "baseUrl=https://raw.githubusercontent.com",
         "--target",
         "lib/main_development.dart"
       ]
