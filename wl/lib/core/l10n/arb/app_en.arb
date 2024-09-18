@@ -3,5 +3,15 @@
     "counterAppBarTitle": "Counter",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "poi": "Point of Interest",
+    "coordinates": "Coordinates {location}",
+    "@coordinates": {
+      "placeholders": {
+        "location": {
+          "example": "22.0896, 03.0664",
+          "type": "String"
+        }
+      }
     }
 }

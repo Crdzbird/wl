@@ -3,5 +3,15 @@
     "counterAppBarTitle": "Contador",
     "@counterAppBarTitle": {
         "description": "Texto mostrado en la AppBar de la página del contador"
+    },
+    "poi": "Puntos de Interés",
+    "coordinates": "Coordenadas {location}",
+    "@coordinates": {
+      "placeholders": {
+        "location": {
+          "example": "22.0896, 03.0664",
+          "type": "String"
+        }
+      }
     }
 }

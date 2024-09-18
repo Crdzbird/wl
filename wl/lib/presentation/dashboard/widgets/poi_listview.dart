@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:wl/data/extensions/build_context.extension.dart';
+import 'package:wl/data/models/stadiums/stadium.dart';
+import 'package:wl/presentation/dashboard/widgets/poi_card.dart';
+
+class PoiListView extends StatelessWidget {
+  const PoiListView(List<Stadium> stadiums, {super.key}) : _stadiums = stadiums;
+
+  final List<Stadium> _stadiums;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      itemBuilder: (context, index) => PoiCard(
+        _stadiums[index],
+        onTap: () {
+          // Handle tap event
+        },
+      ),
+      separatorBuilder: (context, _) => Divider(
+        indent: context.width * .1,
+        endIndent: context.width * .1,
+        thickness: .5,
+      ),
+      itemCount: _stadiums.length,
+    );
+  }
+}
