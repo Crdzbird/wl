@@ -1,6 +1,7 @@
 enum PagesEnum {
   splash('/'),
-  counter('/Counter');
+  dashboard('/dashboard'),
+  detail('/detail/:id');
 
   const PagesEnum(this.path);
   final String path;

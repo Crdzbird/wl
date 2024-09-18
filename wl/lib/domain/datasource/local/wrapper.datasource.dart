@@ -1,6 +1,7 @@
 import 'package:wl/data/datasource/local/preferences.datasource.contract.dart';
 import 'package:wl/data/enums/preferences.enum.dart';
 import 'package:wl/data/models/failure.dart';
+import 'package:wl/data/models/stadiums/stadium.dart';
 import 'package:wl/data/models/stadiums/wrapper.dart';
 import 'package:wl/domain/datasource/local/wrapper.datasource.contract.dart';
 
@@ -26,4 +27,14 @@ class WrapperDataSource extends WrapperDataSourceContract {
         key: PreferencesEnum.pois.cachedName,
         value: wrapper.toJson,
       );
+
+  @override
+  Stadium getStadium(String id) {
+    final wrapperJson =
+        _preferences.read<String>(key: PreferencesEnum.pois.cachedName) ?? '';
+    if (wrapperJson.isEmpty) return const Stadium();
+    return Wrapper.fromJson(wrapperJson)
+        .stadiums
+        .firstWhere((stadium) => stadium.id == id);
+  }
 }

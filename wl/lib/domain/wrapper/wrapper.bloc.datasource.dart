@@ -1,4 +1,5 @@
 import 'package:wl/data/models/failure.dart';
+import 'package:wl/data/models/stadiums/stadium.dart';
 import 'package:wl/data/models/stadiums/wrapper.dart';
 import 'package:wl/domain/datasource/local/wrapper.datasource.contract.dart';
 import 'package:wl/domain/datasource/remote/remote_wrapper.datasource.contract.dart';
@@ -27,4 +28,7 @@ class WrapperBlocDataSource extends WrapperBlocDataSourceContract {
     // TODO(Crdzbird): implement filter
     throw UnimplementedError();
   }
+
+  @override
+  Stadium stadium(String id) => _localDataSource.getStadium(id);
 }

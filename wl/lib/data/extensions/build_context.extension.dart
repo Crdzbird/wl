@@ -14,6 +14,10 @@ extension BuildContextExtension on BuildContext {
 
   bool get isWeb => kIsWeb;
 
+  double get width => MediaQuery.sizeOf(this).width;
+
+  double get height => MediaQuery.sizeOf(this).height;
+
   Future<void> preCacheSVGs() => Future.wait(
         SvgEnum.values.map(
           (SvgEnum svg) => precacheImage(

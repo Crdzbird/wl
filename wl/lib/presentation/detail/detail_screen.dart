@@ -9,12 +9,14 @@ import 'package:wl/domain/datasource/remote/remote_wrapper.datasource.contract.d
 import 'package:wl/domain/datasource/remote/remote_wrapper.datasource.dart';
 import 'package:wl/domain/wrapper/wrapper.bloc.datasource.contract.dart';
 import 'package:wl/domain/wrapper/wrapper.bloc.datasource.dart';
-import 'package:wl/presentation/dashboard/bloc/poi_bloc.dart';
-import 'package:wl/presentation/dashboard/view/dashboard_view.dart';
+import 'package:wl/presentation/detail/bloc/detail_bloc.dart';
+import 'package:wl/presentation/detail/view/detail_view.dart';
 
 @RoutePage()
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+class DetailScreen extends StatelessWidget {
+  const DetailScreen(@PathParam('id') String id, {super.key}) : _id = id;
+
+  final String _id;
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +38,12 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
       ],
-      child: BlocProvider<PoiBloc>(
-        create: (bpContext) => PoiBloc(
+      child: BlocProvider<DetailBloc>(
+        create: (bpContext) => DetailBloc(
           wrapperBlocDataSource:
               bpContext.read<WrapperBlocDataSourceContract>(),
-        )..fetchPois(),
-        child: const DashboardView(),
+        )..fetchStadium(_id),
+        child: const DetailView(),
       ),
     );
   }
