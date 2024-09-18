@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => context.router.pushNamed(PagesEnum.counter.path),
+      (_) => context.router.pushNamed(PagesEnum.dashboard.path),
     );
     return const Scaffold(
       body: Center(

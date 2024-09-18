@@ -7,6 +7,7 @@ import 'package:wl/presentation/router/wl.router.gr.dart';
     'lib/presentation/router',
     'lib/presentation/splash',
     'lib/presentation/dashboard',
+    'lib/presentation/detail',
   ],
 )
 class WlRouter extends RootStackRouter {
@@ -23,7 +24,12 @@ class WlRouter extends RootStackRouter {
         ),
         AutoRoute(
           page: DashboardRoute.page,
-          path: PagesEnum.counter.path,
+          path: PagesEnum.dashboard.path,
+          usesPathAsKey: true,
+        ),
+        AutoRoute(
+          page: DetailRoute.page,
+          path: PagesEnum.detail.path,
           usesPathAsKey: true,
         ),
       ];

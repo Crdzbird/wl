@@ -17,7 +17,7 @@ class DashboardView extends StatelessWidget {
         child: BlocBuilder<PoiBloc, PoiState>(
           builder: (context, state) {
             if (state is OnLoadingState || state is OnFailedState) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator.adaptive());
             }
             return PoiListView((state as OnSuccessState).wrapper.stadiums);
           },

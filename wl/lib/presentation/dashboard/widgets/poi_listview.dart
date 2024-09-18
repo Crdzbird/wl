@@ -1,5 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:wl/data/enums/pages.enum.dart';
 import 'package:wl/data/extensions/build_context.extension.dart';
+import 'package:wl/data/extensions/string.extension.dart';
 import 'package:wl/data/models/stadiums/stadium.dart';
 import 'package:wl/presentation/dashboard/widgets/poi_card.dart';
 
@@ -13,9 +16,9 @@ class PoiListView extends StatelessWidget {
     return ListView.separated(
       itemBuilder: (context, index) => PoiCard(
         _stadiums[index],
-        onTap: () {
-          // Handle tap event
-        },
+        onTap: () => context.router.pushNamed(
+          PagesEnum.detail.path.replaceParams([_stadiums[index].id]),
+        ),
       ),
       separatorBuilder: (context, _) => Divider(
         indent: context.width * .1,
