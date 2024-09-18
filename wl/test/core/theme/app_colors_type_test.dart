@@ -7,7 +7,9 @@ void main() {
     test('Night Mode Colors', () {
       expect(AppColorsType.deepPurple.color, const Color(0xFF6A1B9A));
       expect(
-          AppColorsType.transparentPurpleA200.color, const Color(0x33AB47BC));
+        AppColorsType.transparentPurpleA200.color,
+        const Color(0x33AB47BC),
+      );
       expect(AppColorsType.purpleA200.color, const Color(0xFFAB47BC));
       expect(AppColorsType.purpleA400.color, const Color(0xFF8E24AA));
       expect(AppColorsType.darkGrey.color, const Color(0xFF121212));
@@ -24,7 +26,9 @@ void main() {
     test('Day Mode Colors', () {
       expect(AppColorsType.mutedPurple.color, const Color(0xFF9370DB));
       expect(
-          AppColorsType.transparentMediumPurple.color, const Color(0x339370DB));
+        AppColorsType.transparentMediumPurple.color,
+        const Color(0x339370DB),
+      );
       expect(AppColorsType.orchid.color, const Color(0xFFBA55D3));
       expect(AppColorsType.whiteSmoke.color, const Color(0xFFF5F5F5));
       expect(AppColorsType.lavender.color, const Color(0xFFE6E6FA));
