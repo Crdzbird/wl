@@ -13,19 +13,22 @@ class PoiListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: (context, index) => PoiCard(
-        _stadiums[index],
-        onTap: () => context.router.pushNamed(
-          PagesEnum.detail.path.replaceParams([_stadiums[index].id]),
+    return Flexible(
+      child: ListView.separated(
+        shrinkWrap: true,
+        itemBuilder: (context, index) => PoiCard(
+          _stadiums[index],
+          onTap: () => context.router.pushNamed(
+            PagesEnum.detail.path.replaceParams([_stadiums[index].id]),
+          ),
         ),
+        separatorBuilder: (context, _) => Divider(
+          indent: context.width * .1,
+          endIndent: context.width * .1,
+          thickness: .5,
+        ),
+        itemCount: _stadiums.length,
       ),
-      separatorBuilder: (context, _) => Divider(
-        indent: context.width * .1,
-        endIndent: context.width * .1,
-        thickness: .5,
-      ),
-      itemCount: _stadiums.length,
     );
   }
 }
