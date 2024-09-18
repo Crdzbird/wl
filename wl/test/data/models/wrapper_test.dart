@@ -24,6 +24,7 @@ void main() {
 
     test('should create a Wrapper from JSON', () {
       const jsonStr =
+          // ignore: lines_longer_than_80_chars
           '{"list":[{"title":"Stadium 1","geocoordinates":"Location 1"},{"title":"Stadium 2","geocoordinates":"Location 2"}]}';
       final wrapper = Wrapper.fromJson(jsonStr);
       expect(wrapper.stadiums.length, 2);
@@ -40,6 +41,7 @@ void main() {
       final jsonStr = wrapper.toJson;
       expect(
         jsonStr,
+        // ignore: lines_longer_than_80_chars
         '{"list":[{"id":"","title":"Stadium 1","geocoordinates":"Location 1","image":""},{"id":"","title":"Stadium 2","geocoordinates":"Location 2","image":""}]}',
       );
     });

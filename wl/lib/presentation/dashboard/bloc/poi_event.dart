@@ -19,6 +19,9 @@ class OnSuccessEvent extends PoiEvent {
 class OnFailureEvent extends PoiEvent {
   const OnFailureEvent(this.error);
   final String error;
+
+  @override
+  List<Object> get props => [error];
 }
 
 class OnLoadingEvent extends PoiEvent {

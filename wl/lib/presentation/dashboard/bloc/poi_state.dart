@@ -12,6 +12,9 @@ class OnLoadingState extends PoiState {}
 class OnFailedState extends PoiState {
   const OnFailedState(this.error);
   final String error;
+
+  @override
+  List<Object> get props => [error];
 }
 
 class OnSuccessState extends PoiState {

@@ -44,12 +44,14 @@ void main() {
 
     test('fromJson creates a Stadium from a JSON string', () {
       const jsonStr =
+          // ignore: lines_longer_than_80_chars
           '{"id":"1","title":"Stadium Title","geocoordinates":"123,456","image":"image_url"}';
       expect(Stadium.fromJson(jsonStr), stadium);
     });
 
     test('toJson converts a Stadium to a JSON string', () {
       const jsonStr =
+          // ignore: lines_longer_than_80_chars
           '{"id":"1","title":"Stadium Title","geocoordinates":"123,456","image":"image_url"}';
       expect(stadium.toJson, jsonStr);
     });
