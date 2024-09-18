@@ -24,6 +24,12 @@ class Wrapper extends Equatable {
         'list': stadiums.map((e) => e.toMap).toList(),
       };
 
+  Wrapper copyWith({List<Stadium>? stadiums}) {
+    return Wrapper(
+      stadiums: stadiums ?? this.stadiums,
+    );
+  }
+
   @override
   List<Object?> get props => [stadiums];
 

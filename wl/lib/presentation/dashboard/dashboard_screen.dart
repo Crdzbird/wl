@@ -9,6 +9,7 @@ import 'package:wl/domain/datasource/remote/remote_wrapper.datasource.contract.d
 import 'package:wl/domain/datasource/remote/remote_wrapper.datasource.dart';
 import 'package:wl/domain/wrapper/wrapper.bloc.datasource.contract.dart';
 import 'package:wl/domain/wrapper/wrapper.bloc.datasource.dart';
+import 'package:wl/presentation/dashboard/bloc/filter/filter_cubit.dart';
 import 'package:wl/presentation/dashboard/bloc/poi_bloc.dart';
 import 'package:wl/presentation/dashboard/view/dashboard_view.dart';
 
@@ -36,11 +37,19 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
       ],
-      child: BlocProvider<PoiBloc>(
-        create: (bpContext) => PoiBloc(
-          wrapperBlocDataSource:
-              bpContext.read<WrapperBlocDataSourceContract>(),
-        )..fetchPois(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<FilterCubit>(
+            create: (_) => FilterCubit(),
+          ),
+          BlocProvider<PoiBloc>(
+            create: (bpContext) => PoiBloc(
+              wrapperBlocDataSource:
+                  bpContext.read<WrapperBlocDataSourceContract>(),
+              filterCubit: bpContext.read<FilterCubit>(),
+            )..fetchPois(),
+          ),
+        ],
         child: const DashboardView(),
       ),
     );
